@@ -1,0 +1,22 @@
+# User configuration — contains API keys and personal paths
+.env
+
+# Runtime data
+.data/
+tmp/
+vision_test_output.md
+llm_test_output.md
+llm_test_cache.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Claude Code
+.claude/
+.mcp.json

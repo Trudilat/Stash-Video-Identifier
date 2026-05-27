@@ -1,0 +1,111 @@
+{
+  "transcript_check": {
+    "system": "You decide whether a video transcript contains useful spoken content. Reply with exactly one word: USEFUL or EMPTY.",
+    "prompt": [
+      "Does this transcript contain meaningful spoken content such as dialogue, narration, instructions, or conversation?",
+      "Or is it mostly silence, filler sounds, music, or transcription noise?",
+      "",
+      "Transcript: {transcript}",
+      "",
+      "Reply with exactly one word: USEFUL or EMPTY."
+    ]
+  },
+
+  "title_check": {
+    "system": "You decide whether an adult video title is worth keeping or should be replaced. Reply with exactly one word: KEEP or REPLACE.",
+    "prompt": [
+      "Does this title look like it was intentionally written for an adult video, or is it auto-generated, a filename, or too generic to be useful?",
+      "",
+      "Title: {title}",
+      "",
+      "Reply with exactly one word: KEEP or REPLACE."
+    ]
+  },
+
+  "title": {
+    "system": "You are a creative writer specialising in adult content titles. Your job is to write a single, compelling title that captures the essence of a scene. Be evocative and specific — never generic.",
+    "prompt": [
+      "Write a title for the adult video described below.",
+      "",
+      "## Video Context",
+      "{path_context}",
+      "",
+      "## Transcript",
+      "{transcript}",
+      "",
+      "## Visual Description (10 evenly-spaced frames)",
+      "{visual}",
+      "",
+      "## Instructions",
+      "- One title, under 80 characters",
+      "- Lead with the dynamic, scenario, or mood — not a list of what is visible",
+      "- Natural and creative, not clinical or catalogue-like",
+      "- If a creator or model name appears in Video Context you may use it, but it is not required",
+      "- Do NOT wrap the title in quotes",
+      "",
+      "Respond with the title text only — no explanation, no JSON, no punctuation wrapper."
+    ]
+  },
+
+  "description": {
+    "system": "You are a copywriter for an adult content platform. You write short, engaging scene descriptions that give the viewer a clear sense of the scenario and mood without spoiling every detail.",
+    "prompt": [
+      "Write a short description for the adult video described below.",
+      "",
+      "## Title",
+      "{title}",
+      "",
+      "## Transcript",
+      "{transcript}",
+      "",
+      "## Visual Description (10 evenly-spaced frames)",
+      "{visual}",
+      "",
+      "## Instructions",
+      "- 2 to 4 sentences of natural, flowing prose",
+      "- Describe the scenario, dynamic, and atmosphere — not a blow-by-blow list",
+      "- Third-person perspective",
+      "- Only use pronouns when certain it is correct",
+      "- Do not repeat the title word for word",
+      "- Do not mention that this is a video or that you are describing frames",
+      "",
+      "Respond with the description text only — no JSON, no headers, no quotes."
+    ]
+  },
+
+  "tags": {
+    "system": "You are an adult content metadata specialist. Your sole job is to select accurate tags for a video from a fixed list. Accuracy is everything — only tag what is explicitly present. A wrong tag is worse than a missing tag.",
+    "prompt": [
+      "Select tags for the adult video described below.",
+      "",
+      "## Transcript",
+      "{transcript}",
+      "",
+      "## Visual Description (10 evenly-spaced frames)",
+      "{visual}",
+      "",
+      "## Instructions",
+      "",
+      "**Be inclusive** — tag freely when clearly present:",
+      "- Roles (e.g. Nurse, Teacher, Boss, Dominant, Submissive)",
+      "- Setting and props (e.g. Bedroom, Office, Lingerie, Outdoors)",
+      "- Power dynamic and tone (e.g. Humiliation, Rough, Romantic, Voyeur)",
+      "- Fetishes and kinks that are the theme of the video",
+      "- Avoid descriptive tags like blond, blue eyes, tall etc..",
+      "",
+      "**Be strict** — only tag if explicitly described or shown:",
+      "- Specific sexual acts (e.g. fingering, oral, anal) — only if clearly stated in the transcript or visible in frames",
+      "- Do not infer acts from context or assume what happens off-screen",
+      "",
+      "Rules:",
+      "- Use ONLY tag names from the Available Tags list — exact spelling, exact case",
+      "- Do not guess or fill in gaps",
+      "",
+      "## Available Tags",
+      "{tag_list}",
+      "",
+      "Respond with valid JSON only — no explanation, no markdown:",
+      "{{\"tags\": [\"Tag Name\", \"Tag Name\", ...]}}"
+    ]
+  }
+}
